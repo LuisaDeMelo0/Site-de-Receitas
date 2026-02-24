@@ -1,0 +1,150 @@
+{
+  "usuarios": [
+    {
+      "id": "187cb7e5-e097-4224-8bc7-b610c855e2b1",
+      "login": "admin",
+      "senha": "123",
+      "nome": "Administrador do Sistema",
+      "email": "admin@abc.com",
+      "admin": true
+    },
+    {
+      "id": "ec37c83d-4b7f-458d-9e10-3fda7d37cd3e",
+      "login": "user",
+      "senha": "123",
+      "nome": "Usuario Comum",
+      "email": "user@abc.com",
+      "admin": false
+    },
+    {
+      "id": "faa4e64a-cd9f-48cc-bac5-cdd771389fb4",
+      "login": "lululinda",
+      "senha": "343434",
+      "nome": "Lulu",
+      "email": "luisadmelo.fs@gmail.com",
+      "admin": false
+    }
+  ],
+  "favoritos": [
+    {
+      "id": "d6b7",
+      "userId": "faa4e64a-cd9f-48cc-bac5-cdd771389fb4",
+      "receitaId": "6"
+    },
+    {
+      "id": "e8be",
+      "userId": "187cb7e5-e097-4224-8bc7-b610c855e2b1",
+      "receitaId": "5"
+    }
+  ],
+  "receitas": [
+    {
+      "id": "1",
+      "categoria": "Populares",
+      "title": "Lasanha à Bolonhesa",
+      "description": "Camadas de massa fresca, molho de carne e queijo gratinado.",
+      "imageUrl": "img/lasanha.jpg",
+      "tempo": "1h 30min",
+      "porcoes": "6 porções",
+      "ingredientes": "500g de carne moída\nMassa de lasanha\nMolho de tomate\nQueijo ralado\nCebola, alho e temperos",
+      "modoPreparo": "1. Refogue a carne com cebola e alho.\n2. Monte camadas de massa, molho e queijo.\n3. Leve ao forno 40 minutos.",
+      "destaque": true
+    },
+    {
+      "id": "2",
+      "categoria": "Populares",
+      "title": "Feijoada Tradicional",
+      "description": "Um clássico brasileiro com feijão preto, carnes e laranja.",
+      "imageUrl": "img/feijoada.jpg",
+      "tempo": "2h",
+      "porcoes": "8 porções",
+      "ingredientes": "500g feijão preto\nCarne seca, linguiça e bacon\nCebola, alho e temperos\nLaranja\nFarofa",
+      "modoPreparo": "1. Cozinhe o feijão.\n2. Doure as carnes separadamente.\n3. Misture tudo e cozinhe mais 1 hora.",
+      "destaque": false
+    },
+    {
+      "id": "3",
+      "categoria": "Populares",
+      "title": "Frango Assado com Batatas",
+      "description": "Frango dourado no forno com batatas crocantes e ervas.",
+      "imageUrl": "img/frango.jpg",
+      "tempo": "1h 20min",
+      "porcoes": "4 porções",
+      "ingredientes": "1 frango inteiro\nBatatas\nAlecrim e ervas\nAlho, sal e pimenta",
+      "modoPreparo": "1. Tempere o frango.\n2. Coloque batatas ao redor.\n3. Asse no forno 1h até dourar.",
+      "destaque": true
+    },
+    {
+      "id": "4",
+      "categoria": "Melhores Sobremesas",
+      "title": "Bolo de Chocolate",
+      "description": "Massa úmida e cobertura cremosa de chocolate meio amargo.",
+      "imageUrl": "img/bolo.avif",
+      "tempo": "50min",
+      "porcoes": "8 porções",
+      "ingredientes": "200g chocolate\n200g manteiga\n4 ovos\n200g açúcar\n200g farinha",
+      "modoPreparo": "1. Derreta o chocolate e a manteiga.\n2. Misture os ovos, açúcar e farinha.\n3. Asse 35 minutos.",
+      "destaque": false
+    },
+    {
+      "id": "5",
+      "categoria": "Melhores Sobremesas",
+      "title": "Pudim de Leite Condensado",
+      "description": "Clássico brasileiro com calda dourada e textura cremosa.",
+      "imageUrl": "img/pudim.avif",
+      "tempo": "1h 30min",
+      "porcoes": "6 porções",
+      "ingredientes": "1 lata leite condensado\n2 latas leite\n3 ovos\nAçúcar para calda",
+      "modoPreparo": "1. Bata todos os ingredientes.\n2. Coloque em forma caramelizada.\n3. Asse em banho-maria 1h.",
+      "destaque": true
+    },
+    {
+      "id": "6",
+      "categoria": "Melhores Sobremesas",
+      "title": "Torta de Morango",
+      "description": "Base crocante com creme leve e morangos frescos.",
+      "imageUrl": "img/torta.jpg",
+      "tempo": "1h",
+      "porcoes": "8 porções",
+      "ingredientes": "Massa de biscoito\nManteiga\nCreme de confeiteiro\nMorangos frescos",
+      "modoPreparo": "1. Faça a base de biscoito.\n2. Recheie com creme.\n3. Decore com morangos.",
+      "destaque": false
+    },
+    {
+      "id": "7",
+      "categoria": "Receitas Vegetarianas",
+      "title": "Salada Mediterrânea",
+      "description": "Tomate, pepino, azeitona, queijo feta e molho de azeite.",
+      "imageUrl": "img/salada.jpg",
+      "tempo": "15min",
+      "porcoes": "2 porções",
+      "ingredientes": "Tomate\nPepino\nAzeitonas\nQueijo feta\nAzeite e temperos",
+      "modoPreparo": "1. Corte os vegetais.\n2. Misture tudo.\n3. Tempere com azeite e ervas.",
+      "destaque": false
+    },
+    {
+      "id": "8",
+      "categoria": "Receitas Vegetarianas",
+      "title": "Risoto de Cogumelos",
+      "description": "Arroz arbório cremoso com cogumelos e parmesão.",
+      "imageUrl": "img/risoto.jpg",
+      "tempo": "40min",
+      "porcoes": "4 porções",
+      "ingredientes": "Arroz arbório\nCogumelos\nCebola\nCaldo de legumes\nQueijo parmesão",
+      "modoPreparo": "1. Refogue cebola e cogumelos.\n2. Acrescente arroz e caldo.\n3. Cozinhe até ficar cremoso.",
+      "destaque": true
+    },
+    {
+      "id": "9",
+      "categoria": "Receitas Vegetarianas",
+      "title": "Hambúrguer Vegano",
+      "description": "Feito com grão-de-bico, quinoa e especiarias deliciosas.",
+      "imageUrl": "img/hamburguervegano.jpg",
+      "tempo": "30min",
+      "porcoes": "4 porções",
+      "ingredientes": "Grão-de-bico\nQuinoa\nEspeciarias\nPão integral\nVegetais",
+      "modoPreparo": "1. Amasse o grão-de-bico.\n2. Misture com quinoa e temperos.\n3. Modele e grelhe os hambúrgueres.",
+      "destaque": false
+    }
+  ]
+}

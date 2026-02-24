@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Detalhes da Receita</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+header { background-color: #f76733; }
+#detalhes-receita { margin: 4rem auto 2rem auto; padding: 2rem; max-width: 900px; border-radius: 12px; overflow: hidden; }
+#detalhes-receita img { border-radius: 15px; width: 100%; height: 400px; object-fit: cover; }
+#detalhes-receita .card-body { margin: 1rem; }
+.btn-voltar { background-color: #001f4d; color: #fff; border: none; font-family: Georgia, serif; }
+.btn-voltar:hover { background-color: #003366; }
+#detalhes-receita .card-title, #detalhes-receita .card-text strong { color: #f76733; font-family: Georgia, serif; }
+.carrossel-receitas { padding-bottom: 3rem; max-width: 900px; margin: 2rem auto; position: relative; }
+.carrossel-container { overflow: hidden; position: relative; width: 100%; }
+.carrossel-slides { color: #f76733; display: flex; transition: transform 0.5s ease; width: max-content; }
+.carrossel-slides .card { flex: 0 0 280px; margin: 0 10px; border-radius: 10px; transition: transform 0.3s; }
+.carrossel-slides .card:hover { transform: scale(1.03); }
+.btn-prev, .btn-next { background-color: rgba(255,255,255,0.9); border-radius: 50%; width: 40px; height: 40px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); z-index: 10; }
+footer p { padding:2rem; text-align:center; }
+</style>
+</head>
+<body>
+
+<header class="py-3 header-bg">
+    <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between flex-wrap">
+        <div class="logo mb-3 mb-md-0">
+            <span class="fs-4 fw-bold text-white">
+                <i class="fa-solid fa-utensils"></i> Prato Online
+            </span>
+        </div>
+
+        <nav class="nav mb-3 mb-md-0 mx-md-auto" id="main-nav">
+            <a class="nav-link px-2" href="index.html">HOME</a>
+            <a class="nav-link px-2" href="apresentacao.html">DASHBOARD</a>
+            
+            <div id="dynamic-nav-links" class="d-flex align-items-center"></div>
+        </nav>
+
+        <div class="d-flex align-items-center">
+            <form class="d-flex me-3" id="headerSearchForm">
+                <input class="form-control me-2" type="search" placeholder="Pesquisar Receita" aria-label="Search" id="search-input">
+                <button class="btn btn-warning" type="submit">
+                    <i class="fa-solid fa-search"></i>
+                </button>
+            </form>
+
+            <div id="nav-auth" class="d-flex align-items-center"></div>
+        </div>
+        
+    </div>
+</header>
+
+<main class="container">
+  <div class="row">
+    <div class="col-12">
+      <div id="detalhes-receita" class="card mb-5 shadow-sm">
+        <p class="text-center p-5">Carregando detalhes da receita...</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="carrossel-receitas mt-5">
+    <h3 class="text-center mb-3">Outras Receitas</h3>
+    <div class="carrossel-container position-relative">
+      <button class="btn-prev btn btn-light position-absolute start-0 top-50 translate-middle-y"><i class="fa-solid fa-chevron-left"></i></button>
+      <div class="carrossel-slides d-flex overflow-hidden"></div>
+      <button class="btn-next btn btn-light position-absolute end-0 top-50 translate-middle-y"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+  </section>
+</main>
+
+<footer>
+<p>© 2025 Prato Online — Todos os direitos reservados.</p>
+</footer>
+
+<script src="js/app.js"></script>
+
+<script>
+const DETAIL_API_URL = "http://localhost:3000/receitas";
+const container = document.getElementById("detalhes-receita");
+
+function usuarioAdmin() { return localStorage.getItem("isAdmin") === "true"; }
+
+async function excluirReceitaAPI(id){
+  if(!usuarioAdmin()){ alert("Apenas admins podem excluir!"); return; }
+  try{
+    const resp = await fetch(`${DETAIL_API_URL}/${id}`, {method:'DELETE'});
+    if(resp.ok){ alert("Receita excluída!"); window.location.href="index.html"; }
+    else { alert("Erro ao excluir"); }
+  }catch(e){ alert("Erro de rede"); }
+}
+
+function confirmarExclusao(id){
+    if(usuarioAdmin() && prompt("Digite EXCLUIR para excluir:") === "EXCLUIR")
+        excluirReceitaAPI(id);
+}
+
+function renderizarDetalhes(receita){
+  container.innerHTML = `
+    <img src="${receita.imageUrl}" class="card-img-top" alt="${receita.title}">
+    <div class="card-body">
+      <h2 class="card-title mb-3">${receita.title}</h2>
+      <p class="card-text"><strong>Descrição:</strong> ${receita.description}</p>
+      <p class="card-text"><strong>Tempo de Preparo:</strong> ${receita.tempo}</p>
+      <p class="card-text"><strong>Porções:</strong> ${receita.porcoes}</p>
+      <p class="card-text"><strong>Ingredientes:</strong><br>${receita.ingredientes.replace(/\n/g,"<br>")}</p>
+      <p class="card-text"><strong>Modo de Preparo:</strong><br>${receita.modoPreparo.replace(/\n/g,"<br>")}</p>
+      <div class="mt-4 d-flex gap-3" id="botoes-acao">
+        <a href="index.html" class="btn btn-voltar">Voltar</a>
+      </div>
+    </div>
+  `;
+  document.title = receita.title;
+
+  const usuario = JSON.parse(sessionStorage.getItem("usuarioCorrente"));
+  if (usuario && usuario.admin === true) {
+    const botoesAcao = document.getElementById("botoes-acao");
+    const btnExcluir = document.createElement("button");
+    btnExcluir.className = "btn btn-danger";
+    btnExcluir.innerHTML = '<i class="fa-solid fa-trash"></i> Excluir Receita';
+    btnExcluir.onclick = () => confirmarExclusao(receita.id);
+    botoesAcao.appendChild(btnExcluir);
+  }
+}
+
+function criarSlide(receita){
+  const div = document.createElement("div");
+  div.className = "card shadow-sm";
+  div.innerHTML = `
+    <a href="detalhes.html?id=${receita.id}" class="text-decoration-none text-dark">
+      <img src="${receita.imageUrl}" class="card-img-top" style="height:180px;object-fit:cover;" alt="${receita.title}">
+      <div class="card-body">
+        <h6 class="card-title">${receita.title}</h6>
+        <p class="card-text small">${receita.description}</p>
+      </div>
+    </a>
+  `;
+  return div;
+}
+
+async function buscarReceitaEOutras(){
+  const id = new URLSearchParams(window.location.search).get("id");
+  if(!id){ container.innerHTML=`<p class="alert alert-danger">ID não encontrado</p>`; return; }
+  try{
+    const resp = await fetch(`${DETAIL_API_URL}/${id}`);
+    const receita = await resp.json();
+    renderizarDetalhes(receita);
+
+    const todas = await (await fetch(DETAIL_API_URL)).json();
+    const outras = todas.filter(r=>r.id!==receita.id);
+    const carrossel = document.querySelector(".carrossel-slides");
+    outras.forEach(r=>carrossel.appendChild(criarSlide(r)));
+
+    inicializarCarrossel(outras.length);
+  }catch(e){
+    container.innerHTML=`<p class="alert alert-danger">Erro ao carregar receita</p>`;
+  }
+}
+
+function inicializarCarrossel(total){
+  const carrossel = document.querySelector(".carrossel-slides");
+  const prev = document.querySelector(".btn-prev");
+  const next = document.querySelector(".btn-next");
+  let offset=0;
+  function getSlideWidth(){ const s=document.querySelector(".carrossel-slides .card"); return s ? s.offsetWidth + 20 : 300; }
+  function atualizar(){ carrossel.style.transform=`translateX(-${offset}px)`; }
+  next.onclick=()=>{ const w=getSlideWidth(); const vis=Math.floor(document.querySelector(".carrossel-container").offsetWidth/w); const max=Math.max(0,(total-vis)*w); offset = offset>=max ? 0 : offset+w; atualizar(); };
+  prev.onclick=()=>{ const w=getSlideWidth(); const vis=Math.floor(document.querySelector(".carrossel-container").offsetWidth/w); const max=Math.max(0,(total-vis)*w); offset = offset<=0 ? max : offset-w; atualizar(); };
+}
+
+document.addEventListener("DOMContentLoaded", buscarReceitaEOutras);
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

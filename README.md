@@ -1,0 +1,6 @@
+AVISO!!
+
+CASO A FUNÇÃO DE FAVORITOS NÃO ESTEJA FUNCIONANDO, DIGITE NO TERMINAL:
+
+npx json-server --watch db.json --port 3000
+

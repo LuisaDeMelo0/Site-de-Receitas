@@ -1,0 +1,262 @@
+body {
+    background-color: #eeebe0;
+}
+
+header {
+    background-color: #f76733;
+}
+
+.logo {
+  padding:2rem;
+}
+
+.nav {
+  display: flex;
+ gap: 2rem;
+}
+
+nav .nav-link {
+  color: #001f3f;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: color 0.3s, transform 0.3s;
+}
+
+nav .nav-link:hover {
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+form .btn-primary {
+  background-color: #001f3f;
+  border-color: #001f3f;
+}
+
+form .btn-primary:hover {
+  background-color: #003366;
+  transform: scale(1.05);
+}
+
+form .form-control {
+  height: 45px;          
+  font-size: 1.1rem;      
+  padding: 0 15px;        
+}
+
+form .btn-primary {
+  height: 45px;           
+  font-size: 1.1rem;      
+  padding: 0 20px;       
+  background-color: #003366;
+  border-color: #001f3f;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+form .btn-primary:hover {
+  background-color: #003366;
+  transform: scale(1.05);
+}
+
+.mb-4 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color:#002b5b;
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 2rem;
+}
+
+.card {
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  border: 2px solid #004080; 
+  cursor: pointer;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .card-img-top {
+  transform: scale(1.08);
+}
+
+.card-title {
+    text-align: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #002b5b;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+ 
+}
+
+.card-text {
+  font-size: 1.2rem;
+  color: black;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.carrossel {
+  display: block; 
+}
+
+#carouselReceitas {
+  max-width: 800px;  
+  margin: 0 auto;    
+}
+
+#carouselReceitas .carousel-item img {
+  height: 400px;      
+  width: 100%;        
+  object-fit: cover;  
+}
+
+#carouselReceitas .carousel-caption {
+  position: absolute;
+  bottom: 20px;        
+  left: 50%;
+  transform: translateX(-50%); 
+  background-color: rgba(0, 0, 0, 0.6); 
+  padding: 15px 20px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 95%;     
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+#carouselReceitas .carousel-caption h5 {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+#carouselReceitas .carousel-caption p {
+  color: #fff;
+  font-size: 1rem;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+}
+
+button.prev, button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  z-index: 20;
+}
+
+button.prev { left: 5px; }
+button.next { right: 5px; }
+
+.slide .card {
+  width: 100%;        
+  max-width: 600px;  
+}
+
+.slide .card-img-top {
+  height: 350px;     
+  object-fit: cover; 
+}
+
+footer {
+  background-color: #002b5b; 
+  color: #f8f9fa;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  padding: 3rem;
+}
+
+footer .links-rodape a {
+  color: #f8f9fa;
+  text-decoration: non
+}
+
+.links-rodape{
+  text-align: center;
+  text-decoration: none;
+}
+
+.links-rodape a {
+  color: #f8f9fa; 
+  text-decoration: none;
+  margin: 0 0.5rem;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+footer .links-rodape a:hover {
+  color: #f76733; 
+}
+
+footer .links-rodape span {
+  color: #f8f9fa; 
+  margin: 0 0.3rem;
+}
+
+  footer .links-rodape {
+  text-align: center;        
+  margin-top: 1.5rem;
+  padding-bottom: 2rem;      
+  border-bottom: 1px solid #ccc; 
+  width: 95%;                
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.copyright {
+  padding:0.8rem;
+}
+
+.sobre-mim, .redes{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+footer h3 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1.2rem;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  color: #f6794c;
+  font-weight: bold;
+}
+
+footer .redes a {
+  color: #f8f9fa;
+  font-size: 1.6rem;
+  margin: 0 10px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+footer .redes a:hover {
+  color: #f76733; 
+  transform: scale(1.2);
+}
+
+.sobre-mim, .redes{
+  margin-left: 2.8rem;
+}
+
+@media (min-width: 768px) and (max-width: 1192px) {
+.nav .nav-link {
+  color: #001f3f;          
+  font-size: 0.9rem;       
+  font-weight: 500;
+  padding: 8px 12px;      
+  transition: color 0.3s, transform 0.3s;
+  text-decoration: none;
+}
+}
+
