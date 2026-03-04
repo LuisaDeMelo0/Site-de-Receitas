@@ -11,7 +11,7 @@
     <style>
         body { font-family: Arial, sans-serif; background-color: #f8f9fa; }
         
-        /* 🧡 CABEÇALHO - De vermelho (danger) para azul escuro */
+        /* CABEÇALHO - De vermelho (danger) para azul escuro */
         .header-bg { 
             background-color: #001f3f; /* Azul Escuro */
             box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
@@ -22,7 +22,7 @@
         .card-img-top { height: 200px; object-fit: cover; border-bottom: 1px solid rgba(0,0,0,0.05); }
         .empty-placeholder { min-height: 220px; display:flex; align-items:center; justify-content:center; }
         
-        /* 🎨 CLASSES PERSONALIZADAS PARA O TEMA */
+        /* CLASSES PERSONALIZADAS PARA O TEMA */
         .text-laranja-custom {
             color: #d74916 !important;
         }
@@ -52,7 +52,7 @@
         }
 
         .text-laranja-custom {
-        color: #d74916 !important; /* Laranja Escuro solicitado */
+        color: #d74916 !important; 
     }
     
     .btn-azul-escuro i {
@@ -98,7 +98,7 @@ function showSpinner(container) {
 }
 
 async function carregarFavoritos() {
-    // ... (restante do código de verificação de login permanece o mesmo) ...
+    
     const usuario = JSON.parse(sessionStorage.getItem("usuarioCorrente"));
     const lista = document.getElementById("favorite-recipes-list");
     const totalBadge = document.getElementById("totalFavoritos");
